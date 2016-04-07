@@ -3,11 +3,13 @@ import requests
 
 FoobotDevice = namedtuple('FooBotDevice', ['userId', 'uuid', 'name', 'mac'])
 
+
 class Foobot:
     def __init__(self, username, password):
         self.base_url = 'https://api.Foobot.io/v2'
         self.username = username
         self.password = password
+        self.session = requests.Session()
 
         self.token = self.login()
         if self.token is None:
@@ -26,13 +28,13 @@ class Foobot:
     def login(self):
         url = '{base}/user/{user}/login/'.format(base=self.base_url,
                                                  user=self.username)
-        req = requests.get(url, auth=(self.username, self.password))
+        req = self.session.get(url, auth=(self.username, self.password))
         return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
 
     def devices(self):
         url = '{base}/owner/{user}/device/'.format(base=self.base_url,
                                                    user=self.username)
-        req = requests.get(url, headers=self.auth_header)
+        req = self.session.get(url, headers=self.auth_header)
         return [FoobotDevice(**device) for device in req.json()]
 
     def latest(self, uuid):
@@ -42,7 +44,7 @@ class Foobot:
                          uuid=uuid,
                          period=0,
                          sampling=0)
-        req = requests.get(url, headers=self.auth_header)
+        req = self.session.get(url, headers=self.auth_header)
         return req.json()
 
     def data_period(self, uuid, period, sampling):
@@ -53,7 +55,7 @@ class Foobot:
                          period=period,
                          sampling=sampling)
 
-        req = requests.get(url, headers=self.auth_header)
+        req = self.session.get(url, headers=self.auth_header)
         return req.json()
 
     def data_range(self, uuid, start, end, sampling):
@@ -65,5 +67,5 @@ class Foobot:
                          end=end,
                          sampling=sampling)
 
-        req = requests.get(url, headers=self.auth_header)
+        req = self.session.get(url, headers=self.auth_header)
         return req.json()

@@ -1,7 +1,10 @@
 pyfoobot
 ========
 
-A Python wrapper for the `FooBot <http://api.foobot.io/apidoc/index.html>`__ API. It allows you to pull data from your `Foobot device <http://foobot.io>`__.
+.. image:: https://travis-ci.org/philipbl/pyfoobot.svg?branch=master
+    :target: https://travis-ci.org/philipbl/pyfoobot
+
+A Python wrapper for the `FooBot API <http://api.foobot.io/apidoc/index.html>`__. It allows you to pull data from your `Foobot device <http://foobot.io>`__.
 
 Installation
 ------------
@@ -16,7 +19,7 @@ Example
     fb = Foobot("username", "password")
     devices = fb.devices()
 
-    # Devices is a list, in case you have more than one foobot.
+    # Devices is a list, in case you have more than one foobot
     device = devices[0]
 
     # Get the most recent sample

@@ -9,6 +9,7 @@ Allows for data to be queried in three ways:
 
 import requests
 
+__version__ = '0.1'
 BASE_URL = 'https://api.Foobot.io/v2'
 
 

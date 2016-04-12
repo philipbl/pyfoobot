@@ -16,6 +16,8 @@ Example
 -------
 ::
 
+    from pyfoobot import Foobot
+
     fb = Foobot("username", "password")
     devices = fb.devices()
 
@@ -30,4 +32,5 @@ Example
 
     # Get data for a data range
     range_data = device.data_range(start='2016-04-12T11:00:00',
-                                   end='2016-04-12T12:00:00')
+                                   end='2016-04-12T12:00:00',
+                                   sampling=0)

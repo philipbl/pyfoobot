@@ -1,5 +1,10 @@
 """
 A Python wrapper for the Foobot air quality sensor API.
+
+Allows for data to be queried in three ways:
+  1. Get the latest sample from the foobot
+  2. Get data from an interval
+  3. Get data from a time span
 """
 
 import requests
@@ -9,7 +14,9 @@ BASE_URL = 'https://api.Foobot.io/v2'
 
 class Foobot:
     """Class for authentication and getting foobot devices."""
+
     def __init__(self, username, password):
+        """Authenticate the username and password."""
         self.username = username
         self.password = password
         self.session = requests.Session()
@@ -39,7 +46,9 @@ class Foobot:
 # pylint: disable=too-many-arguments
 class FoobotDevice:
     """Represents a foobot device."""
+
     def __init__(self, token, user_id, uuid, name, mac):
+        """Create a foobot device instance used for getting data samples."""
         self.token = token
         self.user_id = user_id
         self.uuid = uuid

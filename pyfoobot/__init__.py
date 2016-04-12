@@ -40,7 +40,16 @@ class Foobot:
         url = '{base}/owner/{user}/device/'.format(base=BASE_URL,
                                                    user=self.username)
         req = self.session.get(url, headers=self.auth_header)
-        return [FoobotDevice(self.token, **device) for device in req.json()]
+
+        def create_device(token, device):
+            """Helper to create a FoobotDevice based on a dictionary."""
+            return FoobotDevice(token=token,
+                                user_id=device['userId'],
+                                uuid=device['uuid'],
+                                name=device['name'],
+                                mac=device['mac'])
+
+        return [create_device(self.token, device) for device in req.json()]
 
 
 # pylint: disable=too-many-arguments

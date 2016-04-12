@@ -33,7 +33,7 @@ class Test:
             devices = fb.devices()
 
             assert len(devices) == 1
-            assert devices[0].userId == 1234
+            assert devices[0].user_id == 1234
             assert devices[0].uuid == '123456789ABCDEF'
             assert devices[0].name == 'HappyBot'
             assert devices[0].mac == '1234'

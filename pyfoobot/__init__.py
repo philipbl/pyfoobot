@@ -8,6 +8,7 @@ BASE_URL = 'https://api.Foobot.io/v2'
 
 
 class Foobot:
+    """Class for authentication and getting foobot devices."""
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -35,10 +36,12 @@ class Foobot:
         return [FoobotDevice(self.token, **device) for device in req.json()]
 
 
+# pylint: disable=too-many-arguments
 class FoobotDevice:
-    def __init__(self, token, userId, uuid, name, mac):
+    """Represents a foobot device."""
+    def __init__(self, token, user_id, uuid, name, mac):
         self.token = token
-        self.userId = userId
+        self.user_id = user_id
         self.uuid = uuid
         self.name = name
         self.mac = mac

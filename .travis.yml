@@ -11,4 +11,8 @@ install:
   - "pip install -r requirements.txt"
   - "pip install -r requirements-test.txt"
 
-script: py.test
+script:
+  - flake8 pyfoobot
+  - pylint pyfoobot
+  - pydocstyle pyfoobot
+  - py.test

@@ -1,7 +1,7 @@
 pyfoobot
 ========
 
-A tool for getting data from your `FooBot device <http://foobot.io>`__
+A Python wrapper for the `FooBot <http://api.foobot.io/apidoc/index.html>`__ API. It allows you to pull data from your `Foobot device <http://foobot.io>`__.
 
 Installation
 ------------
@@ -16,12 +16,15 @@ Example
     fb = Foobot("username", "password")
     devices = fb.devices()
 
-    last_hour_data = fb.data_period(devices[0], 3600, 0)
-    latest_data = fb.latest(devices[0])
+    # Devices is a list, in case you have more than one foobot.
+    device = devices[0]
 
+    # Get the most recent sample
+    latest_data = device.latest()
 
+    # Get data from the last hour
+    last_hour_data = device.data_period(3600, 0)
 
-Requirements
-------------
-
--  `requests <https://pypi.python.org/pypi/requests>`__
+    # Get data for a data range
+    range_data = device.data_range(start='2016-04-12T11:00:00',
+                                   end='2016-04-12T12:00:00')

@@ -1,4 +1,7 @@
-from collections import namedtuple
+"""
+A Python wrapper for the Foobot air quality sensor API.
+"""
+
 import requests
 
 BASE_URL = 'https://api.Foobot.io/v2'
@@ -18,12 +21,14 @@ class Foobot:
                             'x-auth-token': self.token}
 
     def login(self):
+        """Log into a foobot device."""
         url = '{base}/user/{user}/login/'.format(base=BASE_URL,
                                                  user=self.username)
         req = self.session.get(url, auth=(self.username, self.password))
         return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
 
     def devices(self):
+        """Get list of foobot devices owned by logged in user."""
         url = '{base}/owner/{user}/device/'.format(base=BASE_URL,
                                                    user=self.username)
         req = self.session.get(url, headers=self.auth_header)
@@ -42,6 +47,7 @@ class FoobotDevice:
                             'x-auth-token': self.token}
 
     def latest(self):
+        """Get latest sample from foobot device."""
         url = '{base}/device/{uuid}/datapoint/{period}/last/{sampling}/'
         url = url.format(base=BASE_URL,
                          uuid=self.uuid,
@@ -51,6 +57,7 @@ class FoobotDevice:
         return req.json()
 
     def data_period(self, period, sampling):
+        """Get a specified period of data samples."""
         url = '{base}/device/{uuid}/datapoint/{period}/last/{sampling}/'
         url = url.format(base=BASE_URL,
                          uuid=self.uuid,
@@ -61,6 +68,7 @@ class FoobotDevice:
         return req.json()
 
     def data_range(self, start, end, sampling):
+        """Get a specified range of data samples."""
         url = '{base}/device/{uuid}/datapoint/{start}/{end}/{sampling}/'
         url = url.format(base=BASE_URL,
                          uuid=self.uuid,

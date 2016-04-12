@@ -1,0 +1,114 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2016-04-12T18:46:19",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip, deflate",
+          "Authorization": "Basic cGhpbGlwbHVuZHJpZ2FuQGdtYWlsLmNvbTpCcmFuZG9uMTE=",
+          "Connection": "keep-alive",
+          "User-Agent": "python-requests/2.9.1"
+        },
+        "method": "GET",
+        "uri": "https://api.Foobot.io/v2/user/USERNAME/login/"
+      },
+      "response": {
+        "body": {
+          "encoding": "UTF-8",
+          "string": "true"
+        },
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Type": "application/json;charset=UTF-8",
+          "Date": "Tue, 12 Apr 2016 18:46:19 GMT",
+          "Server": "nginx/1.9.14",
+          "X-AUTH-TOKEN": "<AUTH-TOKEN>",
+          "transfer-encoding": "chunked"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://api.Foobot.io/v2/user/USERNAME/login/"
+      }
+    },
+    {
+      "recorded_at": "2016-04-12T18:46:19",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": "application/json;charset=UTF-8",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "User-Agent": "python-requests/2.9.1",
+          "x-auth-token": "<AUTH-TOKEN>"
+        },
+        "method": "GET",
+        "uri": "https://api.Foobot.io/v2/owner/USERNAME/device/"
+      },
+      "response": {
+        "body": {
+          "encoding": "UTF-8",
+          "string": "[{\"uuid\":\"123456789ABCDEF\",\"userId\":1234,\"mac\":\"1234\",\"name\":\"HappyBot\"}]"
+        },
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Type": "application/json;charset=UTF-8",
+          "Date": "Tue, 12 Apr 2016 18:46:19 GMT",
+          "Server": "nginx/1.9.14",
+          "transfer-encoding": "chunked"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://api.Foobot.io/v2/owner/USERNAME/device/"
+      }
+    },
+    {
+      "recorded_at": "2016-04-12T18:46:20",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": "application/json;charset=UTF-8",
+          "Accept-Encoding": "gzip, deflate",
+          "Connection": "keep-alive",
+          "User-Agent": "python-requests/2.9.1",
+          "x-auth-token": "<AUTH-TOKEN>"
+        },
+        "method": "GET",
+        "uri": "https://api.Foobot.io/v2/device/123456789ABCDEF/datapoint/3600/last/60/"
+      },
+      "response": {
+        "body": {
+          "encoding": "UTF-8",
+          "string": "{\"uuid\":\"123456789ABCDEF\",\"start\":1460483048,\"end\":1460486588,\"sensors\":[\"time\",\"pm\",\"tmp\",\"hum\",\"co2\",\"voc\",\"allpollu\"],\"units\":[\"s\",\"ugm3\",\"C\",\"pc\",\"ppm\",\"ppb\",\"%\"],\"datapoints\":[[1460483048,19.102997,22.754,43.38,1672.0,462.0,57.602997],[1460483348,18.873001,22.759499,43.3395,1661.0,459.0,57.123],[1460483648,17.722992,22.771,43.263,1640.0,453.0,55.472992],[1460483948,17.722992,22.771,43.2455,1636.0,452.0,55.389656],[1460484248,17.263,22.772,43.18,1624.0,448.0,54.596333],[1460484488,16.803009,22.773998,43.138,1614.0,445.5,53.92801],[1460484788,16.343018,22.786,43.019,1585.0,438.0,52.843018],[1460485088,16.343018,22.788,42.9965,1579.5,436.5,52.718018],[1460485388,15.423004,22.792,42.921,1565.0,432.0,51.423004],[1460485688,15.193008,22.7915,42.896,1558.5,430.0,51.026344],[1460485988,14.502991,22.792,42.784,1540.0,425.0,49.91966],[1460486288,14.502991,22.7925,42.7535,1535.0,423.5,49.79466],[1460486588,14.963013,22.797,42.706,1526.0,422.0,50.12968]]}"
+        },
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Type": "application/json;charset=UTF-8",
+          "Date": "Tue, 12 Apr 2016 18:46:20 GMT",
+          "Server": "nginx/1.9.14",
+          "transfer-encoding": "chunked"
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://api.Foobot.io/v2/device/123456789ABCDEF/datapoint/3600/last/60/"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.6.0"
+}

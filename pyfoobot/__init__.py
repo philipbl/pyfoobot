@@ -16,25 +16,29 @@ BASE_URL = 'https://api.Foobot.io/v2'
 class Foobot:
     """Class for authentication and getting foobot devices."""
 
-    def __init__(self, username, password):
+    def __init__(self, apikey, username, password):
         """Authenticate the username and password."""
+	self.apikey = apikey
         self.username = username
         self.password = password
         self.session = requests.Session()
+
+	self.api_header = {'X-API-KEY-TOKEN': self.apikey}
 
         self.token = self.login()
         if self.token is None:
             raise ValueError("Provided username or password is not valid.")
 
         self.auth_header = {'Accept': 'application/json;charset=UTF-8',
-                            'x-auth-token': self.token}
+                            'x-auth-token': self.token,
+	                    'X-API-KEY-TOKEN': self.apikey}
 
     def login(self):
         """Log into a foobot device."""
         url = '{base}/user/{user}/login/'.format(base=BASE_URL,
                                                  user=self.username)
-        req = self.session.get(url, auth=(self.username, self.password))
-        return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
+        req = self.session.get(url, auth=(self.username, self.password), headers=self.api_header)
+	return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
 
     def devices(self):
         """Get list of foobot devices owned by logged in user."""

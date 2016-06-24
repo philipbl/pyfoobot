@@ -18,12 +18,12 @@ class Foobot:
 
     def __init__(self, apikey, username, password):
         """Authenticate the username and password."""
-	self.apikey = apikey
+        self.apikey = apikey
         self.username = username
         self.password = password
         self.session = requests.Session()
 
-	self.api_header = {'X-API-KEY-TOKEN': self.apikey}
+        self.api_header = {'X-API-KEY-TOKEN': self.apikey}
 
         self.token = self.login()
         if self.token is None:
@@ -38,7 +38,7 @@ class Foobot:
         url = '{base}/user/{user}/login/'.format(base=BASE_URL,
                                                  user=self.username)
         req = self.session.get(url, auth=(self.username, self.password), headers=self.api_header)
-	return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
+        return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
 
     def devices(self):
         """Get list of foobot devices owned by logged in user."""
@@ -65,7 +65,7 @@ class FoobotDevice:
     def __init__(self, apikey, token, user_id, uuid, name, mac):
         """Create a foobot device instance used for getting data samples."""
         self.apikey = apikey
-	self.token = token
+        self.token = token
         self.user_id = user_id
         self.uuid = uuid
         self.name = name

@@ -16,24 +16,28 @@ BASE_URL = 'https://api.Foobot.io/v2'
 class Foobot:
     """Class for authentication and getting foobot devices."""
 
-    def __init__(self, username, password):
+    def __init__(self, apikey, username, password):
         """Authenticate the username and password."""
+        self.apikey = apikey
         self.username = username
         self.password = password
         self.session = requests.Session()
+
+        self.api_header = {'X-API-KEY-TOKEN': self.apikey}
 
         self.token = self.login()
         if self.token is None:
             raise ValueError("Provided username or password is not valid.")
 
         self.auth_header = {'Accept': 'application/json;charset=UTF-8',
-                            'x-auth-token': self.token}
+                            'x-auth-token': self.token,
+	                    'X-API-KEY-TOKEN': self.apikey}
 
     def login(self):
         """Log into a foobot device."""
         url = '{base}/user/{user}/login/'.format(base=BASE_URL,
                                                  user=self.username)
-        req = self.session.get(url, auth=(self.username, self.password))
+        req = self.session.get(url, auth=(self.username, self.password), headers=self.api_header)
         return req.headers['X-AUTH-TOKEN'] if req.text == "true" else None
 
     def devices(self):
@@ -42,23 +46,25 @@ class Foobot:
                                                    user=self.username)
         req = self.session.get(url, headers=self.auth_header)
 
-        def create_device(token, device):
+        def create_device(apikey, token, device):
             """Helper to create a FoobotDevice based on a dictionary."""
-            return FoobotDevice(token=token,
+            return FoobotDevice(apikey=apikey,
+				token=token,
                                 user_id=device['userId'],
                                 uuid=device['uuid'],
                                 name=device['name'],
                                 mac=device['mac'])
 
-        return [create_device(self.token, device) for device in req.json()]
+        return [create_device(self.apikey, self.token, device) for device in req.json()]
 
 
 # pylint: disable=too-many-arguments
 class FoobotDevice:
     """Represents a foobot device."""
 
-    def __init__(self, token, user_id, uuid, name, mac):
+    def __init__(self, apikey, token, user_id, uuid, name, mac):
         """Create a foobot device instance used for getting data samples."""
+        self.apikey = apikey
         self.token = token
         self.user_id = user_id
         self.uuid = uuid
@@ -66,7 +72,8 @@ class FoobotDevice:
         self.mac = mac
         self.session = requests.Session()
         self.auth_header = {'Accept': 'application/json;charset=UTF-8',
-                            'x-auth-token': self.token}
+                            'x-auth-token': self.token,
+			    'X-API-KEY-TOKEN': self.apikey}
 
     def latest(self):
         """Get latest sample from foobot device."""

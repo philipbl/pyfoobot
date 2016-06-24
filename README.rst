@@ -18,7 +18,7 @@ Example
 
     from pyfoobot import Foobot
 
-    fb = Foobot("username", "password")
+    fb = Foobot("API secret key", "username", "password")
     devices = fb.devices()
 
     # Devices is a list, in case you have more than one foobot

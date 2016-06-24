@@ -19,17 +19,18 @@ class Test:
     def setup_method(self, method):
         self.user = os.environ.get('FOOBOT_USER', '')
         self.password = os.environ.get('FOOBOT_PASSWORD', '')
+        self.api_key = os.environ.get('FOOBOT_API_KEY', '')
 
     def test_bad_login(self, betamax_session):
         with patch('pyfoobot.requests.Session',
                    return_value=betamax_session):
             with pytest.raises(ValueError):
-                Foobot("username", "password")
+                Foobot("1234", "username", "password")
 
     def test_devices(self, betamax_session):
         with patch('pyfoobot.requests.Session',
                    return_value=betamax_session):
-            fb = Foobot(self.user, self.password)
+            fb = Foobot(self.api_key, self.user, self.password)
             devices = fb.devices()
 
             assert len(devices) == 1
@@ -41,7 +42,7 @@ class Test:
     def test_latest(self, betamax_session):
         with patch('pyfoobot.requests.Session',
                    return_value=betamax_session):
-            fb = Foobot(self.user, self.password)
+            fb = Foobot(self.api_key, self.user, self.password)
 
             devices = fb.devices()
             assert len(devices) == 1
@@ -62,7 +63,7 @@ class Test:
 
         with patch('pyfoobot.requests.Session',
                    return_value=betamax_session):
-            fb = Foobot(self.user, self.password)
+            fb = Foobot(self.api_key, self.user, self.password)
 
             devices = fb.devices()
             assert len(devices) == 1
@@ -84,7 +85,7 @@ class Test:
 
         with patch('pyfoobot.requests.Session',
                    return_value=betamax_session):
-            fb = Foobot(self.user, self.password)
+            fb = Foobot(self.api_key, self.user, self.password)
 
             devices = fb.devices()
             assert len(devices) == 1

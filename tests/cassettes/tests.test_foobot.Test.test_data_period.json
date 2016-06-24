@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2016-04-12T18:46:19",
+      "recorded_at": "2016-06-24T18:33:40",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -10,24 +10,29 @@
         "headers": {
           "Accept": "*/*",
           "Accept-Encoding": "gzip, deflate",
-          "Authorization": "Basic cGhpbGlwbHVuZHJpZ2FuQGdtYWlsLmNvbTpCcmFuZG9uMTE=",
+          "Authorization": "Basic <HASH>",
           "Connection": "keep-alive",
-          "User-Agent": "python-requests/2.9.1"
+          "User-Agent": "python-requests/2.9.1",
+          "X-API-KEY-TOKEN": "foobar"
         },
         "method": "GET",
         "uri": "https://api.Foobot.io/v2/user/USERNAME/login/"
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAAAAAAACopKk0FAAAA//8DAI1M/P0EAAAA",
           "encoding": "UTF-8",
-          "string": "true"
+          "string": ""
         },
         "headers": {
           "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
           "Content-Type": "application/json;charset=UTF-8",
-          "Date": "Tue, 12 Apr 2016 18:46:19 GMT",
-          "Server": "nginx/1.9.14",
-          "X-AUTH-TOKEN": "<AUTH-TOKEN>",
+          "Date": "Fri, 24 Jun 2016 18:33:40 GMT",
+          "Server": "nginx/1.11.1",
+          "Vary": "Accept-Encoding,Accept-Encoding",
+          "X-API-KEY-LIMIT-REMAINING": "180",
+          "X-AUTH-TOKEN": "<X-AUTH-TOKEN>",
           "transfer-encoding": "chunked"
         },
         "status": {
@@ -38,7 +43,7 @@
       }
     },
     {
-      "recorded_at": "2016-04-12T18:46:19",
+      "recorded_at": "2016-06-24T18:33:40",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -49,21 +54,26 @@
           "Accept-Encoding": "gzip, deflate",
           "Connection": "keep-alive",
           "User-Agent": "python-requests/2.9.1",
-          "x-auth-token": "<AUTH-TOKEN>"
+          "X-API-KEY-TOKEN": "foobar",
+          "x-auth-token": "<X-AUTH-TOKEN>"
         },
         "method": "GET",
         "uri": "https://api.Foobot.io/v2/owner/USERNAME/device/"
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAFCCbVcC/4uuViotzUxRslIyNDI2MTUzt7B0dHJ2cXVT0lEqLU4t8gRKgWR0lHITk6GqgFJ5ibmpQJ5HYkFBpVN+iVJtLAD5qcZ2SQAAAA==",
           "encoding": "UTF-8",
-          "string": "[{\"uuid\":\"123456789ABCDEF\",\"userId\":1234,\"mac\":\"1234\",\"name\":\"HappyBot\"}]"
+          "string": ""
         },
         "headers": {
           "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
           "Content-Type": "application/json;charset=UTF-8",
-          "Date": "Tue, 12 Apr 2016 18:46:19 GMT",
-          "Server": "nginx/1.9.14",
+          "Date": "Fri, 24 Jun 2016 18:33:40 GMT",
+          "Server": "nginx/1.11.1",
+          "Vary": "Accept-Encoding,Accept-Encoding",
+          "X-API-KEY-LIMIT-REMAINING": "179",
           "transfer-encoding": "chunked"
         },
         "status": {
@@ -74,7 +84,7 @@
       }
     },
     {
-      "recorded_at": "2016-04-12T18:46:20",
+      "recorded_at": "2016-06-24T18:33:40",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -85,21 +95,26 @@
           "Accept-Encoding": "gzip, deflate",
           "Connection": "keep-alive",
           "User-Agent": "python-requests/2.9.1",
-          "x-auth-token": "<AUTH-TOKEN>"
+          "X-API-KEY-TOKEN": "foobar",
+          "x-auth-token": "<X-AUTH-TOKEN>"
         },
         "method": "GET",
         "uri": "https://api.Foobot.io/v2/device/123456789ABCDEF/datapoint/3600/last/60/"
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAAAAAAAFzTS24bMQwG4LsM0N1AEJ8Ss03bSwReuEnQGvBjENvdFL17f2oSO+hGY8zwE0VS/jNdr7uX6WFir2HNv7cmlb5+q9M8nS/bt8v0QOreerjJPL0eX95fhFDgxfn1eD69naeHp+myO7xCLQcsl8OC9dc1fz+fGOvv0zPW7X6/nPb767SZp+txdxnwjA/XnwfB4zE3yMBlbLMsP7B+yeiX7WW7nHbHQZ4+nYm0dOaIPjMXsTZLL9509rBSZwrGylokVNk38weNpF5UQGOlbGmbiGIz7wmpR3Ir1qybffConNxKU3SLBpdIPSj2BW2UFF9IVe/SVhnoc22rHHmVrVaZLWpi18RUDFb8rntqKVGR14ZWSs3NZ+NEpKNuL80REjdKlJRLMyT2tWJNSkF5ao1xamnFsqcmvTHdtWDavUhHu1aMB2KDdVYbR+bM+xFyh/4f1Eq1Utru3YD5HRvCFPXyvVkUwJkER9YVj6zNG6AM6CNrdevON4gLkZAFkNYuY8qQHi1zUhY5crYiFS2u99mywWLXDrteqjakw8VI2bB6EUeHPqXsYFYwoEq8MrNRprhVnhVXCUnlPekIu+HxZ7JCji7pWqn0MVcLzJVvc0WlXEn6ZvP3HwAAAP//AwDSC/ACuwMAAA==",
           "encoding": "UTF-8",
-          "string": "{\"uuid\":\"123456789ABCDEF\",\"start\":1460483048,\"end\":1460486588,\"sensors\":[\"time\",\"pm\",\"tmp\",\"hum\",\"co2\",\"voc\",\"allpollu\"],\"units\":[\"s\",\"ugm3\",\"C\",\"pc\",\"ppm\",\"ppb\",\"%\"],\"datapoints\":[[1460483048,19.102997,22.754,43.38,1672.0,462.0,57.602997],[1460483348,18.873001,22.759499,43.3395,1661.0,459.0,57.123],[1460483648,17.722992,22.771,43.263,1640.0,453.0,55.472992],[1460483948,17.722992,22.771,43.2455,1636.0,452.0,55.389656],[1460484248,17.263,22.772,43.18,1624.0,448.0,54.596333],[1460484488,16.803009,22.773998,43.138,1614.0,445.5,53.92801],[1460484788,16.343018,22.786,43.019,1585.0,438.0,52.843018],[1460485088,16.343018,22.788,42.9965,1579.5,436.5,52.718018],[1460485388,15.423004,22.792,42.921,1565.0,432.0,51.423004],[1460485688,15.193008,22.7915,42.896,1558.5,430.0,51.026344],[1460485988,14.502991,22.792,42.784,1540.0,425.0,49.91966],[1460486288,14.502991,22.7925,42.7535,1535.0,423.5,49.79466],[1460486588,14.963013,22.797,42.706,1526.0,422.0,50.12968]]}"
+          "string": ""
         },
         "headers": {
           "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
           "Content-Type": "application/json;charset=UTF-8",
-          "Date": "Tue, 12 Apr 2016 18:46:20 GMT",
-          "Server": "nginx/1.9.14",
+          "Date": "Fri, 24 Jun 2016 18:33:41 GMT",
+          "Server": "nginx/1.11.1",
+          "Vary": "Accept-Encoding,Accept-Encoding",
+          "X-API-KEY-LIMIT-REMAINING": "178",
           "transfer-encoding": "chunked"
         },
         "status": {

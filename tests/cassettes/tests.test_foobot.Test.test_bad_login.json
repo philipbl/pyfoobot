@@ -1,7 +1,7 @@
 {
   "http_interactions": [
     {
-      "recorded_at": "2016-04-12T18:46:18",
+      "recorded_at": "2016-06-24T18:33:38",
       "request": {
         "body": {
           "encoding": "utf-8",
@@ -10,28 +10,32 @@
         "headers": {
           "Accept": "*/*",
           "Accept-Encoding": "gzip, deflate",
-          "Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+          "Authorization": "Basic <HASH>",
           "Connection": "keep-alive",
-          "User-Agent": "python-requests/2.9.1"
+          "User-Agent": "python-requests/2.9.1",
+          "X-API-KEY-TOKEN": "1234"
         },
         "method": "GET",
         "uri": "https://api.Foobot.io/v2/user/username/login/"
       },
       "response": {
         "body": {
+          "base64_string": "H4sIAAAAAAAAAKpWyk0tLk5MT1WyUsrMK0vMyUxRyE6tVCgoyi/LTElNUaoFAAAA//8DAEIotcsiAAAA",
           "encoding": "UTF-8",
-          "string": "{\"state\":404,\"message\":\"This AuthUser does not exist.\",\"requestedUri\":\"/v2/user/username/login/\",\"stack\":\"[obfuscated]\",\"propagatedException\":null}"
+          "string": ""
         },
         "headers": {
           "Connection": "keep-alive",
-          "Content-Length": "147",
+          "Content-Encoding": "gzip",
           "Content-Type": "application/json;charset=UTF-8",
-          "Date": "Tue, 12 Apr 2016 18:46:18 GMT",
-          "Server": "nginx/1.9.14"
+          "Date": "Fri, 24 Jun 2016 18:33:39 GMT",
+          "Server": "nginx/1.11.1",
+          "Vary": "Accept-Encoding",
+          "transfer-encoding": "chunked"
         },
         "status": {
-          "code": 404,
-          "message": "Not Found"
+          "code": 401,
+          "message": "Unauthorized"
         },
         "url": "https://api.Foobot.io/v2/user/username/login/"
       }
